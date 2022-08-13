@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>TODO</h1>
+    
+
+    <button><a href="/add">Add Tasks</a></button>
+
+    <table border="1px">
+        <thead>
+            <th>id Task</th>
+            <th>Tasks</th>
+            <th>Status</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <% tasks.map((el) => { %>
+                <tr>
+                    <td> <%= el.id %></td>
+                    <td> <%= el.content %></td>
+                    <td> <%= el.status %></td>
+                    <td>
+                        <% if(el.status === 'uncomplete'){ %>
+                            <button name="" value=""><a href="/complete/<%=el.id%>">Edit Status</a></button>
+                            <button><a href="/delete/<%=el.id%>">Delete</a></button>
+                        <%  } else if (el.status === 'complete') { %>
+                            <button name="" value=""><a href="/uncomplete/<%=el.id%>">Edit Status</a></button>
+                            <button><a href="/delete/<%=el.id%>">Delete</a></button>
+                        <% } %>
+                    </td>
+                <% }) %>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
