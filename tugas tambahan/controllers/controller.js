@@ -3,7 +3,14 @@ const {Tasks} = require('../models/index')
 
 class Controller {
     static showAllTasks(req, res){
-        Tasks.findAll()
+        let status = req.query.status
+        // console.log(status, '<<<<<<<');
+        let condition = {}
+        if(status){
+           condition.where = {status: status}
+        }
+
+        Tasks.findAll(condition)
         .then((tasks) => {
             tasks = tasks.map((el => {
                 return el.dataValues
@@ -14,6 +21,7 @@ class Controller {
             res.send(error)
         })
     }
+    
     static addTasks(req, res){
         res.render('showForm')
     }

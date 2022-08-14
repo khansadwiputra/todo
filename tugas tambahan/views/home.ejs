@@ -9,8 +9,18 @@
 <body>
     <h1>TODO</h1>
     
-
+    <label for="">Add task:</label>
     <button><a href="/add">Add Tasks</a></button>
+
+    <form action=""  method="get">
+        <label for="">filter by status: </label>
+        <select name="status" id="">
+            <option value="" selected disabled>select status</option>
+            <option value="complete"> complete </option>
+            <option value="uncomplete"> uncomplete </option>
+        </select>
+        <button type="submit">filter</button>
+    </form>
 
     <table border="1px">
         <thead>
